@@ -80,6 +80,13 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: 4px;
+  background-image: url('images/image.png');
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+}
+.hero-portrait::before {
+  display: none !important;
 }
 .hero-portrait-caption {
   margin-top: 10px;
@@ -104,6 +111,13 @@
   min-height: 700px;
   border: 0;
   border-right: 1px solid var(--line);
+  background-image: url('images/image.png');
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+}
+.hero-portrait-large::before {
+  display: none !important;
 }
 .hero-portrait-side {
   display: flex; flex-direction: column; justify-content: center;
@@ -196,7 +210,17 @@
 }
 .hero-story-by { font-size: 11px; letter-spacing: 0.16em; }
 .hero-story-context { font-size: 14px; color: var(--ink-muted); }
-.hero-story-portrait { width: 100%; aspect-ratio: 4 / 5; }
+.hero-story-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-image: url('images/image.png');
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+}
+.hero-story-portrait::before {
+  display: none !important;
+}
 .hero-story-meta { margin-top: 22px; }
 .hero-story-role { font-size: 22px; line-height: 1.25; margin: 8px 0 22px; color: var(--ink-soft); }
 
@@ -638,7 +662,23 @@
   overflow: hidden;
   display: flex; flex-direction: column;
 }
-.location-img { width: 100%; aspect-ratio: 16 / 9; border: 0; border-bottom: 1px solid var(--line); }
+.location-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.location-img::before { display: none !important; }
+.location-img-american {
+  background-image: url('images/American.png');
+  background-position: center;
+}
+.location-img-alder {
+  background-image: url('images/Alder.png');
+  background-position: center 45%;
+}
 .location-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
 .location-flag { font-size: 11px; letter-spacing: 0.16em; color: var(--accent); margin-bottom: 14px; }
 .location-title { font-size: 32px; line-height: 1.1; margin: 0 0 14px; letter-spacing: -0.01em; }
@@ -871,54 +911,7 @@
   .mid-cta-body { font-size: 16px; margin-bottom: 32px; }
 }
 
-/* ============ HUMANITARIAN ============ */
-.humanitarian-section {
-  background: var(--paper);
-  border-top: 1px solid var(--line);
-  padding: 120px 0;
-}
-.humanitarian-grid {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 80px;
-}
-.humanitarian-body {
-  font-size: 19px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin-bottom: 24px;
-  max-width: 680px;
-}
-.humanitarian-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 56px;
-  padding-top: 48px;
-  border-top: 1px solid var(--line);
-  flex-wrap: wrap;
-}
-.humanitarian-stat-v {
-  font-size: 56px;
-  line-height: 1;
-  color: var(--accent);
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-}
-.humanitarian-stat-l {
-  font-size: 14px;
-  color: var(--ink-muted);
-  max-width: 160px;
-  line-height: 1.5;
-}
-@media (max-width: 980px) {
-  .humanitarian-grid { grid-template-columns: 1fr; gap: 40px; }
-  .humanitarian-stats { gap: 32px; }
-}
-@media (max-width: 600px) {
-  .humanitarian-section { padding: 80px 0; }
-  .humanitarian-stat-v { font-size: 48px; }
-  .humanitarian-body { font-size: 17px; }
-}
+
 
 /* ============ REFERRAL GUIDELINES ============ */
 .referral-section {
@@ -1148,3 +1141,604 @@ html.theme-dark {
   mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
 
+/* ============ MOBILE RESPONSIVENESS ============ */
+@media (max-width: 1180px) {
+  .nav-inner { gap: 18px; }
+  .nav-links { gap: 18px; }
+  .hero-grid,
+  .hero-story-grid {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 980px) {
+  .container,
+  .container-wide {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .section,
+  .about-section {
+    padding-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .section-head {
+    margin-bottom: 44px;
+  }
+
+  .nav-inner {
+    padding: 14px 28px;
+    gap: 16px;
+  }
+
+  .nav-actions .btn-ghost {
+    display: none;
+  }
+
+  .nav-actions .btn-sm {
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding-bottom: 72px;
+  }
+
+  .hero-editorial,
+  .hero-story,
+  .hero-stats {
+    padding-top: 58px;
+  }
+
+  .hero-grid,
+  .hero-portrait-grid,
+  .hero-story-grid {
+    align-items: start;
+  }
+
+  .hero-copy,
+  .hero-portrait-wrap,
+  .hero-portrait-side,
+  .hero-story-quote,
+  .hero-story-side,
+  .section-head > *,
+  .about-main,
+  .credentials-body,
+  .award-body,
+  .research-row > *,
+  .location-card,
+  .footer-col {
+    min-width: 0;
+  }
+
+  .trust-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .trust-marquee {
+    width: 100%;
+  }
+
+  .clinics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .container-wide {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section,
+  .about-section,
+  .award-section,
+  .testimonials-section,
+  .second-opinion-section,
+  .mid-cta-section {
+    padding-top: 76px;
+    padding-bottom: 76px;
+  }
+
+  .section-title,
+  .about-title,
+  .award-title,
+  .second-opinion-title,
+  .mid-cta-title,
+  .hero-title,
+  .hero-portrait-name,
+  .hero-stats-tag,
+  .hero-story-text,
+  .testimonial-text {
+    letter-spacing: 0;
+  }
+
+  .section-title {
+    font-size: 38px;
+    line-height: 1.06;
+  }
+
+  .section-lede {
+    font-size: 16px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  .nav {
+    background: color-mix(in oklab, var(--bg) 96%, transparent);
+  }
+
+  .nav-inner {
+    padding: 12px 20px;
+    gap: 12px;
+  }
+
+  .nav-brand {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .nav-brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+    flex: 0 0 auto;
+  }
+
+  .nav-brand-name {
+    min-width: 0;
+  }
+
+  .nav-brand-line1 {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .nav-brand-line2 {
+    display: none;
+  }
+
+  .nav-actions {
+    flex: 0 0 auto;
+  }
+
+  .nav-actions .btn-sm {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .hero-editorial,
+  .hero-story,
+  .hero-stats {
+    padding-top: 44px;
+  }
+
+  .hero-grid,
+  .hero-story-grid {
+    gap: 32px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    line-height: 1;
+    margin: 18px 0 20px;
+  }
+
+  .hero-copy .eyebrow,
+  .hero-stats-eyebrow {
+    overflow-wrap: anywhere;
+  }
+
+  .hero-lede,
+  .about-body,
+  .award-text,
+  .second-opinion-body,
+  .mid-cta-body {
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .hero-actions,
+  .second-opinion-actions,
+  .modal-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 34px;
+  }
+
+  .hero-actions .btn,
+  .second-opinion-actions .btn,
+  .modal-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-meta {
+    gap: 12px;
+  }
+
+  .hero-meta > div {
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+  }
+
+  .hero-portrait-caption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-portrait-large {
+    min-height: 420px;
+  }
+
+  .hero-portrait-side {
+    padding: 44px 20px 28px;
+  }
+
+  .hero-portrait-name {
+    font-size: 56px;
+    line-height: 0.98;
+  }
+
+  .hero-portrait-role {
+    font-size: 22px;
+  }
+
+  .hero-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat,
+  .hero-stats-grid .hero-stat:nth-child(2),
+  .hero-stats-grid .hero-stat:nth-child(-n+2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-stat:last-child {
+    border-bottom: 0;
+  }
+
+  .hero-stat-num {
+    font-size: 64px;
+    letter-spacing: 0;
+  }
+
+  .hero-stats-foot {
+    gap: 26px;
+    margin-top: 36px;
+  }
+
+  .hero-stats-tag {
+    font-size: 30px;
+  }
+
+  .hero-story-mark {
+    font-size: 86px;
+  }
+
+  .hero-story-text {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .trust-band {
+    padding: 18px 0;
+  }
+
+  .trust-track {
+    gap: 34px;
+  }
+
+  .trust-item {
+    font-size: 19px;
+  }
+
+  .about-grid,
+  .credentials-grid,
+  .award-inner {
+    gap: 28px;
+  }
+
+  .about-mark {
+    font-size: 64px;
+  }
+
+  .about-title {
+    font-size: 32px;
+    line-height: 1.14;
+  }
+
+  .about-sign-role {
+    line-height: 1.5;
+  }
+
+  .stats-strip {
+    padding: 56px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .stat {
+    border-bottom: 1px solid rgba(250,246,237,0.14);
+    padding: 22px 0;
+  }
+
+  .stat:last-child {
+    border-bottom: 0;
+  }
+
+  .stat-v {
+    font-size: 58px;
+    letter-spacing: 0;
+  }
+
+  .expertise-tabs {
+    margin-bottom: 34px;
+  }
+
+  .expertise-tab {
+    padding: 18px 0;
+  }
+
+  .expertise-tab-l {
+    font-size: 21px;
+  }
+
+  .expertise-lede {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .expertise-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 0;
+  }
+
+  .expertise-item:nth-child(odd),
+  .expertise-item:nth-child(even) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .expertise-item-name {
+    font-size: 21px;
+  }
+
+  .expertise-item-sub {
+    white-space: normal;
+  }
+
+  .clinics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clinic-card,
+  .clinic-card:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .clinic-card {
+    min-height: auto;
+    padding: 24px 0;
+  }
+
+  .clinic-card-head {
+    margin-bottom: 30px;
+  }
+
+  .clinic-title {
+    font-size: 25px;
+  }
+
+  .credentials-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+
+  .credentials-title {
+    font-size: 23px;
+  }
+
+  .award-mark {
+    font-size: 112px;
+  }
+
+  .award-title {
+    font-size: 38px;
+  }
+
+  .research-row {
+    padding: 22px 0;
+  }
+
+  .research-title {
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+
+  .testimonial-stage {
+    min-height: auto;
+  }
+
+  .testimonial-text {
+    font-size: 29px;
+  }
+
+  .testimonial-meta {
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .location-body {
+    padding: 22px;
+  }
+
+  .location-title {
+    font-size: 28px;
+  }
+
+  .footer {
+    padding-top: 64px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 40px;
+  }
+
+  .footer-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    line-height: 1.5;
+  }
+
+  .modal-backdrop {
+    align-items: flex-start;
+    padding: 18px;
+    overflow-y: auto;
+  }
+
+  .modal-card {
+    margin-top: 18px;
+    padding: 30px 20px 22px;
+    max-height: calc(100vh - 36px);
+    overflow-y: auto;
+  }
+
+  .modal-title {
+    font-size: 30px;
+  }
+
+  .modal-channel {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .when-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .referral-alert {
+    padding: 20px;
+  }
+
+  .referral-row-head {
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-actions {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 38px;
+    line-height: 1.06;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-copy .eyebrow {
+    max-width: 34ch;
+  }
+
+  .hero-lede {
+    max-width: 100%;
+  }
+
+  .section-title,
+  .award-title,
+  .second-opinion-title,
+  .mid-cta-title {
+    font-size: 34px;
+  }
+
+  .location-meta li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container,
+  .container-wide {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav-brand-mark {
+    display: none;
+  }
+
+  .nav-actions .btn-sm {
+    padding: 8px 10px;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-portrait-name {
+    font-size: 48px;
+  }
+
+  .section-title,
+  .award-title,
+  .second-opinion-title,
+  .mid-cta-title {
+    font-size: 34px;
+  }
+
+  .hero-meta > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .location-meta li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .footer-role,
+  .footer-foot {
+    letter-spacing: 0.08em;
+  }
+}

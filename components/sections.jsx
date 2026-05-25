@@ -418,14 +418,14 @@ const Locations = () => (
       </div>
       <div className="locations-grid">
         <div className="location-card">
-          <div className="ph location-img" data-label="AMERICAN HOSPITAL DUBAI EXTERIOR · 16:9"></div>
+          <div className="ph location-img location-img-american" data-label="AMERICAN HOSPITAL DUBAI EXTERIOR · 16:9"></div>
           <div className="location-body">
             <div className="mono location-flag">UAE · DUBAI · CURRENT PRACTICE</div>
             <h3 className="serif location-title">American Hospital Dubai</h3>
             <p className="location-text">
               Consultant Pediatric Cardiologist &amp; Congenital Cardiac
-              Interventionist, leading five specialist multidisciplinary clinics
-              across pulmonary hypertension, neuromuscular care, Fontan, sports
+              Interventionist, leading four specialist multidisciplinary clinics
+              across pulmonary hypertension, Fontan, sports
               cardiology and adult congenital heart disease.
             </p>
             <ul className="location-meta">
@@ -436,7 +436,7 @@ const Locations = () => (
           </div>
         </div>
         <div className="location-card">
-          <div className="ph location-img" data-label="ALDER HEY CHILDREN'S HOSPITAL · LIVERPOOL · 16:9"></div>
+          <div className="ph location-img location-img-alder" data-label="ALDER HEY CHILDREN'S HOSPITAL · LIVERPOOL · 16:9"></div>
           <div className="location-body">
             <div className="mono location-flag">UK · NORTH WEST · 2019–2026</div>
             <h3 className="serif location-title">Alder Hey &amp; Liverpool Heart &amp; Chest</h3>
@@ -607,46 +607,7 @@ const MidCTA = () => (
   </section>
 );
 
-/* ------------------- Humanitarian & Voluntary Work ------------------- */
-const HumanitarianWork = () => (
-  <section className="section humanitarian-section">
-    <div className="container humanitarian-grid">
-      <div className="humanitarian-side">
-        <div className="eyebrow">Giving back</div>
-        <h2 className="serif section-title">Heart care<br/>beyond borders.</h2>
-      </div>
-      <div className="humanitarian-main">
-        <p className="humanitarian-body">
-          As a trainee in the UK, Dr. Narayanan organised three paediatric
-          cardiac surgical camps in India. With the support of Emirates Airlines,
-          he arranged free flights for a six-member team from Alder Hey —
-          performing 15–20 cardiac surgeries per camp for underprivileged children.
-        </p>
-        <p className="humanitarian-body">
-          After moving to India, he travelled to Sudan, Somalia, Iraq and several
-          African countries for medical voluntary work. He continues to conduct
-          screening camps in rural South India every three months — screening
-          approximately 150 children with echocardiography per camp and arranging
-          free cardiac treatment through NGO partnerships.
-        </p>
-        <div className="humanitarian-stats">
-          <div className="humanitarian-stat">
-            <div className="serif humanitarian-stat-v">10+</div>
-            <div className="humanitarian-stat-l">Countries served through voluntary missions</div>
-          </div>
-          <div className="humanitarian-stat">
-            <div className="serif humanitarian-stat-v">150</div>
-            <div className="humanitarian-stat-l">Children screened per rural camp</div>
-          </div>
-          <div className="humanitarian-stat">
-            <div className="serif humanitarian-stat-v">3</div>
-            <div className="humanitarian-stat-l">Surgical camps organised with Alder Hey</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+
 
 /* ------------------- Referral Guidelines (for clinicians) ------------------- */
 const ReferralGuidelines = () => {

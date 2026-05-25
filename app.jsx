@@ -69,7 +69,6 @@ function App() {
       <Testimonials />
       <Credentials />
       <Award />
-      <HumanitarianWork />
       <Research />
       <ReferralGuidelines />
       <Locations />

@@ -160,17 +160,39 @@ const __TWEAKS_STYLE = `
 // Single source of truth for tweak values. setTweak persists via the host
 // (__edit_mode_set_keys → host rewrites the EDITMODE block on disk).
 function useTweaks(defaults) {
-  const [values, setValues] = React.useState(defaults);
-  // Accepts either setTweak('key', value) or setTweak({ key: value, ... }) so a
-  // useState-style call doesn't write a "[object Object]" key into the persisted
-  // JSON block.
+  const [values, setValues] = React.useState(() => {
+    try {
+      const saved = localStorage.getItem('dr_arul_tweak_values');
+      if (saved) {
+        return { ...defaults, ...JSON.parse(saved) };
+      }
+    } catch (e) {}
+    return defaults;
+  });
+
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      if (e?.data?.type === '__edit_mode_set_keys') {
+        setValues((prev) => {
+          const next = { ...prev, ...e.data.edits };
+          try { localStorage.setItem('dr_arul_tweak_values', JSON.stringify(next)); } catch (err) {}
+          return next;
+        });
+      }
+    };
+    window.addEventListener('message', onMsg);
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
   const setTweak = React.useCallback((keyOrEdits, val) => {
     const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
       ? keyOrEdits : { [keyOrEdits]: val };
-    setValues((prev) => ({ ...prev, ...edits }));
+    setValues((prev) => {
+      const next = { ...prev, ...edits };
+      try { localStorage.setItem('dr_arul_tweak_values', JSON.stringify(next)); } catch (err) {}
+      return next;
+    });
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-    // Same-window signal so in-page listeners (deck-stage rail thumbnails)
-    // can react — the parent message only reaches the host, not peers.
     window.dispatchEvent(new CustomEvent('tweakchange', { detail: edits }));
   }, []);
   return [values, setTweak];

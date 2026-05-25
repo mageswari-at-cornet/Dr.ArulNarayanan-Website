@@ -100,9 +100,9 @@ const HeroPortrait = () => (
         </div>
         <p className="hero-portrait-bio">
           Consultant Pediatric Cardiologist at American Hospital Dubai.
-          Formerly Lead Interventional Cardiologist for the North West
-          Congenital Cardiac Network, UK. Caring for hearts from fetal
-          screening through adulthood.
+          Formerly Director of Congenital Cardiac Intervention for the
+          North-West England congenital cardiology partnership. Caring for
+          hearts from fetal screening through adulthood.
         </p>
         <div className="hero-actions">
           <button className="btn btn-accent" data-book>Book a consultation →</button>

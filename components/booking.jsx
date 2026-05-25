@@ -29,14 +29,10 @@ const BookingModal = ({ open, kind, onClose }) => {
         </h3>
         <p className="modal-body">
           {isOpinion
-            ? 'You will be able to securely upload imaging and reports for a written review by Dr. Narayanan, with most responses returned within five working days.'
-            : 'Patients will be able to schedule in-person and tele-consultation appointments at Liverpool or Dubai directly through this site, with availability shown live.'}
+            ? 'The second-opinion intake process is being finalised. Please email a brief summary first; the team will confirm what reports are needed and the expected timeline.'
+            : 'Online self-booking is being finalised. For now, please contact American Hospital Dubai or email the practice to request an in-person or tele-consultation appointment.'}
         </p>
         <div className="modal-channels">
-          <div className="modal-channel">
-            <span className="mono modal-channel-k">Liverpool, UK</span>
-            <span className="modal-channel-v">Practice secretary · +44 (0) 151 — — — —</span>
-          </div>
           <div className="modal-channel">
             <span className="mono modal-channel-k">Dubai, UAE</span>
             <span className="modal-channel-v">American Hospital · +971 58 571 2349</span>

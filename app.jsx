@@ -66,7 +66,6 @@ function App() {
       <ExpertiseSection />
       <MidCTA />
       <ClinicsSection />
-      <Testimonials />
       <Credentials />
       <Award />
       <Research />

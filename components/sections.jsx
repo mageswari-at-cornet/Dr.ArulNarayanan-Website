@@ -79,9 +79,9 @@ const About = () => (
           Dr. Narayanan trained in India and the United Kingdom — completing
           paediatric, PICU and full paediatric cardiology fellowships at Alder Hey
           Children&apos;s Hospital before advancing to subspecialty interventional
-          training in Liverpool and Manchester. After six years leading
-          interventional cardiology across the North West Congenital Cardiac
-          Network, he now practises at the American Hospital Dubai.
+          training in Liverpool and Manchester. After six years directing
+          congenital cardiac intervention for the North-West England congenital
+          cardiology partnership, he now practises at the American Hospital Dubai.
         </p>
         <p className="about-body">
           His career spans high-volume congenital cardiac units in India, a
@@ -241,7 +241,7 @@ const Credentials = () => {
     ['2012–14', 'Consultant · Narayana Hrudayalaya', 'Bangalore — one of the world\'s highest-volume congenital cardiac units'],
     ['2014–17', 'Consultant · Fortis Hospitals', 'Chennai & Bangalore — 350 interventions per year'],
     ['2017–19', 'Consultant · Gleneagles Global Health City', 'Chennai — transplant, ECMO & structural intervention programme'],
-    ['2019–26', 'Lead Interventional Cardiologist', 'North West Congenital Cardiac Network, UK'],
+    ['2019–26', 'Director of Congenital Cardiac Intervention', 'North-West England Congenital Cardiology Partnership Program'],
     ['2026–', 'Consultant Pediatric Cardiologist', 'American Hospital Dubai'],
   ];
   return (
@@ -341,71 +341,6 @@ const Research = () => {
   );
 };
 
-/* ------------------- Testimonials ------------------- */
-const TESTIMONIALS = [
-  {
-    quote: 'He sat with us for an hour before he ever mentioned the procedure. By the time we walked into the cath lab, our daughter felt like she was in the hands of family.',
-    by: 'Parent of a 14-month-old',
-    ctx: 'PDA closure · Alder Hey',
-    year: '2024',
-  },
-  {
-    quote: 'I lived with my Fontan circulation for thirty years before anyone explained it to me the way Dr. Arul did. He drew it on a napkin. I cried.',
-    by: 'ACHD patient, 32',
-    ctx: 'Fontan follow-up · Liverpool',
-    year: '2023',
-  },
-  {
-    quote: 'We came for a second opinion and left with a different diagnosis, a clearer plan, and the first proper night&rsquo;s sleep we&rsquo;d had in months.',
-    by: 'Parents of a newborn',
-    ctx: 'Cyanotic CHD · Dubai',
-    year: '2024',
-  },
-];
-
-const Testimonials = () => {
-  const [i, setI] = React.useState(0);
-  React.useEffect(() => {
-    const t = setInterval(() => setI(x => (x + 1) % TESTIMONIALS.length), 8000);
-    return () => clearInterval(t);
-  }, []);
-  const t = TESTIMONIALS[i];
-  return (
-    <section className="section testimonials-section">
-      <div className="container testimonials-inner">
-        <div className="eyebrow testimonials-eyebrow">In the words of families</div>
-        <div className="testimonial-stage">
-          {TESTIMONIALS.map((tt, idx) => (
-            <blockquote
-              key={idx}
-              className={'testimonial' + (idx === i ? ' active' : '')}
-              aria-hidden={idx !== i}
-            >
-              <div className="serif testimonial-mark">“</div>
-              <p className="serif testimonial-text" dangerouslySetInnerHTML={{__html: tt.quote}} />
-              <div className="testimonial-meta">
-                <span className="mono">{tt.year}</span>
-                <span>{tt.by}</span>
-                <span className="testimonial-ctx">{tt.ctx}</span>
-              </div>
-            </blockquote>
-          ))}
-        </div>
-        <div className="testimonial-dots">
-          {TESTIMONIALS.map((_, idx) => (
-            <button
-              key={idx}
-              className={'testimonial-dot' + (idx === i ? ' active' : '')}
-              onClick={() => setI(idx)}
-              aria-label={'Story ' + (idx+1)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 /* ------------------- Locations ------------------- */
 const Locations = () => (
   <section className="section locations-section" id="locations">
@@ -441,13 +376,12 @@ const Locations = () => (
             <div className="mono location-flag">UK · NORTH WEST · 2019–2026</div>
             <h3 className="serif location-title">Alder Hey &amp; Liverpool Heart &amp; Chest</h3>
             <p className="location-text">
-              Former Lead Interventional Cardiologist for the North West
-              Congenital Cardiac Network — six years leading a regional service
-              spanning paediatric and adult congenital cardiology across 8.5
-              million people.
+              Former Director of Congenital Cardiac Intervention for the
+              North-West England congenital cardiology partnership — a regional
+              collaboration between Alder Hey and Liverpool Heart &amp; Chest.
             </p>
             <ul className="location-meta">
-              <li><span className="mono">Role</span><span>Former Lead Interventional Cardiologist · NHS</span></li>
+              <li><span className="mono">Role</span><span>Former Director · Congenital Cardiac Intervention</span></li>
               <li><span className="mono">Period</span><span>November 2019 – January 2026</span></li>
               <li><span className="mono">Scope</span><span>450 catheters · 450 surgeries per year</span></li>
             </ul>
@@ -468,10 +402,9 @@ const SecondOpinion = ({ onOpen }) => (
         <em className="italic">Send the file. We&apos;ll read it carefully.</em>
       </h2>
       <p className="second-opinion-body">
-        Families and referring clinicians are welcome to share imaging,
-        catheter reports and clinical summaries for an unhurried review. Most
-        responses go out within five working days. There is no obligation to
-        proceed with care under Dr. Narayanan.
+        Families and referring clinicians can email clinical summaries, imaging
+        details and catheter reports to discuss whether a second-opinion review
+        is appropriate. The team will confirm next steps and expected timelines.
       </p>
       <div className="second-opinion-actions">
         <button className="btn btn-accent" onClick={onOpen}>Request a second opinion →</button>
@@ -674,7 +607,7 @@ const ReferralGuidelines = () => {
 
 Object.assign(window, {
   Nav, TrustBand, About, Stats, ExpertiseSection,
-  Credentials, Award, Research, Testimonials,
+  Credentials, Award, Research,
   Locations, SecondOpinion, Footer,
-  WhenToSee, MidCTA, HumanitarianWork, ReferralGuidelines
+  WhenToSee, MidCTA, ReferralGuidelines
 });
